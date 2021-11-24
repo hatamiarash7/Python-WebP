@@ -1,5 +1,7 @@
 # Python WEBP
 
+[![Pylint](https://github.com/hatamiarash7/Python-WebP/actions/workflows/pylint.yml/badge.svg)](https://github.com/hatamiarash7/Python-WebP/actions/workflows/pylint.yml)
+
 The file formats you use on your website have a major impact on its speed, quality, and performance. However, figuring out which image types to use can require a bit of research.
 
 For example, [WebP](https://developers.google.com/speed/webp) is a relatively new, next-gen image file format created by Google. Understanding what it is and how to use it on your WordPress site can help you enhance your User Experience (UX) and overall reduce loading times.
