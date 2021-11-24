@@ -25,5 +25,10 @@ def main():
         webp_path = convert_to_webp(path)
         print(webp_path)
 
+    paths = Path("images").glob("**/*.jpg")
+    for path in paths:
+        webp_path = convert_to_webp(path)
+        print(webp_path)
+
 
 main()
