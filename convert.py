@@ -13,26 +13,20 @@ def convert_to_webp(source):
     Returns:
         pathlib.Path: path to new image
     """
+
     destination = source.with_suffix(".webp")
 
-    image = Image.open(source)  # Open image
-    image.save(destination, format="webp")  # Convert image to webp
-
-    return destination
+    image = Image.open(source)
+    image.save(destination, format="webp")
 
 
 def main():
     """Search for PNG/JPG images and convert them using convert_to_webp()"""
 
-    paths = Path("images").glob("**/*.png")
-    for path in paths:
-        webp_path = convert_to_webp(path)
-        print(webp_path)
-
-    paths = Path("images").glob("**/*.jpg")
-    for path in paths:
-        webp_path = convert_to_webp(path)
-        print(webp_path)
+    for path in filter(lambda p: p.suffix in {".jpg", ".png"}, Path("images").glob("*")):
+        convert_to_webp(path)
+        print("Convert ", path)
 
 
-main()
+if __name__ == "__main__":
+    main()
