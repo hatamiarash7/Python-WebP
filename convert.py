@@ -23,7 +23,7 @@ def convert_to_webp(source):
 def main():
     """Search for PNG/JPG images and convert them using convert_to_webp()"""
 
-    for path in filter(lambda p: p.suffix in {".jpg", ".png"}, Path("images").glob("*")):
+    for path in filter(lambda p: p.suffix in {".jpg", ".jpeg", ".png"}, Path("images").glob("*")):
         convert_to_webp(path)
         print("Convert ", path)
 
