@@ -22,6 +22,10 @@ Place your images in `images` directory and:
 python convert.py
 ```
 
+### Windows
+
+Windows users can easily execute `run.bat` to convert images
+
 ---
 
 ## Support
