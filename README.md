@@ -8,6 +8,13 @@ For example, [WebP](https://developers.google.com/speed/webp) is a relatively ne
 
 There is many websites that convert your photos to WebP format. But it's the offline way 😉
 
+## Workflow
+
+This script will do these:
+
+- Add a watermark to your images ( using `logo.png` file )
+- Convert final image to WebP format
+
 ## Usage
 
 Install [Pillow](https://pillow.readthedocs.io/en/stable/) with pip:
