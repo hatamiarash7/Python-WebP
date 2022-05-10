@@ -1,9 +1,18 @@
 name: Pylint
 
-on: [push]
+on:
+  push:
+    paths:
+      - "convert.py"
+      - ".github/workflows/pylint.yml"
+  pull_request:
+    paths:
+      - "convert.py"
+      - ".github/workflows/pylint.yml"
 
 jobs:
-  build:
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     strategy:
       matrix:
