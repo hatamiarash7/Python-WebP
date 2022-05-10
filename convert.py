@@ -24,7 +24,7 @@ def add_watermark(image_path, watermark):
         watermark (pathlib.Path): Watermark file path
 
     Returns:
-        image (PIL.Image): Base image with watermark
+        PIL.Image: Base image with watermark
     """
     image = Image.open(image_path)
     watermark = Image.open(watermark)
@@ -46,7 +46,10 @@ def add_watermark(image_path, watermark):
 
 
 def main():
-    """Search for PNG/JPG images and convert them using convert_to_webp()"""
+    """Search for PNG/JPG images then
+        - Add watermark
+        - Convert to WebP format
+    """
 
     for path in filter(lambda p: p.suffix in {".jpg", ".jpeg", ".png"}, Path("images").glob("*")):
         print("Convert ", path)
