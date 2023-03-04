@@ -33,7 +33,10 @@ def add_watermark(image_path, watermark):
     new_width = int(image.size[0] * multiplier)
     new_height = int(watermark.size[1] *
                      (new_width / float(watermark.size[0])))
-    watermark = watermark.resize((new_width, new_height), Image.ANTIALIAS)
+    watermark = watermark.resize(
+        (new_width, new_height),
+        Image.Resampling.LANCZOS
+    )
 
     position = ((image.size[0] - 15 - new_width),
                 (image.size[1] - 15 - new_height))
