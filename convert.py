@@ -29,14 +29,10 @@ def add_watermark(image_path, watermark):
     image = Image.open(image_path)
     watermark = Image.open(watermark)
 
-    if image.size[0] > image.size[1]:
-        multiplier = 0.05
-    else:
-        multiplier = 0.1
-
+    multiplier = 0.05 if image.size[0] > image.size[1] else 0.1
     new_width = int(image.size[0] * multiplier)
-    concat = (new_width / float(watermark.size[0]))
-    new_height = int((float(watermark.size[1])*float(concat)))
+    new_height = int(watermark.size[1] *
+                     (new_width / float(watermark.size[0])))
     watermark = watermark.resize((new_width, new_height), Image.ANTIALIAS)
 
     position = ((image.size[0] - 15 - new_width),
@@ -45,16 +41,41 @@ def add_watermark(image_path, watermark):
     return image
 
 
+def get_image_paths(directory):
+    """Get image file paths in the given directory
+
+    Args:
+        directory (str): Path to the directory containing images
+
+    Returns:
+        list: List of pathlib.Path objects representing image files
+    """
+    return list(filter(lambda p: p.suffix in {".jpg", ".jpeg", ".png"}, Path(directory).glob("*")))
+
+
+def process_image(image_path, watermark_path):
+    """Process the given image by adding watermark and converting to webp format
+
+    Args:
+        image_path (pathlib.Path): Base image file path
+        watermark_path (pathlib.Path): Watermark file path
+    """
+    print("Convert ", image_path)
+    image = add_watermark(image_path, watermark_path)
+    convert_to_webp(image_path, image)
+
+
 def main():
     """Search for PNG/JPG images then
         - Add watermark
         - Convert to WebP format
     """
 
-    for path in filter(lambda p: p.suffix in {".jpg", ".jpeg", ".png"}, Path("images").glob("*")):
-        print("Convert ", path)
-        image = add_watermark(path, 'logo.png')
-        convert_to_webp(path, image)
+    image_paths = get_image_paths("images")
+    watermark_path = 'logo.png'
+
+    for path in image_paths:
+        process_image(path, watermark_path)
 
 
 if __name__ == "__main__":
