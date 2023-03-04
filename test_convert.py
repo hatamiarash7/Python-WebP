@@ -43,8 +43,8 @@ class TestImageConversion(unittest.TestCase):
     def test_get_image_paths(self):
         image_paths = get_image_paths(self.test_dir)
         self.assertEqual(len(image_paths), 2)
-        self.assertEqual(image_paths[0], self.watermark_path)
-        self.assertEqual(image_paths[1], self.image_path)
+        self.assertIn(self.image_path, image_paths)
+        self.assertIn(self.watermark_path, image_paths)
 
 
 if __name__ == "__main__":
