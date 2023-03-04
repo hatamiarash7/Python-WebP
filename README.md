@@ -1,6 +1,6 @@
 # Python WEBP
 
-[![Check](https://github.com/hatamiarash7/Python-WebP/actions/workflows/check.yml/badge.svg)](https://github.com/hatamiarash7/Python-WebP/actions/workflows/check.yml)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![Check](https://github.com/hatamiarash7/Python-WebP/actions/workflows/check.yml/badge.svg)](https://github.com/hatamiarash7/Python-WebP/actions/workflows/check.yml)
 
 The file formats you use on your website have a major impact on its speed, quality, and performance. However, figuring out which image types to use can require a bit of research.
 
